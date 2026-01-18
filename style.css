@@ -1,0 +1,624 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #f5c400;
+    --secondary-color: #e6b800;
+    --dark-text: #1f1f1f;
+    --accent-color: #070606;
+    --text-color: #333;
+    --light-bg: #f5f5f5;
+    --border-color: #ddd;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;    
+
+}
+
+.service-card,
+.stat,
+.contact-form {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.contact-info a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+.service-card {
+    position: relative; /* qoladi */
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    cursor: pointer;
+    overflow: visible; /* MUHIM: oldin hidden edi, endi details chiqadi */
+    transition: transform 0.2s ease;
+}
+
+.service-details {
+    display: none; 
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgba(245, 196, 0, 0.1);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.service-card:hover {
+    transform: translateY(-2px);
+}
+
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-box img {
+    width: 50px; /* 150px o‘rniga ixchamroq */
+    height: 50px
+}
+
+.logo-box img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: transparent;
+    object-fit: cover;
+}
+.hero-title {
+    font-size: rem;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: transparent;
+    background: linear-gradient(
+        270deg,
+        #ff6600,
+        #f51d00,
+        #ff8c00,
+        #6e6e6a
+    );
+    background-size: 600% 600%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: textGradient 3s ease infinite;
+}
+
+.hero-title span {
+    display: block;
+    font-size: 5rem;
+}
+@keyframes textGradient {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+section {
+    backdrop-filter: blur(2px);
+}
+
+
+.container {
+    max-width: 12000px;
+    margin: 5px auto;
+    padding: 0 20px;
+}
+
+/* Навигатор */
+.navbar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     font-size: 16px; /* 40px o‘rniga 16px–18px yetarli */
+    padding: 0.5rem 20px;
+}
+.nav-links a {
+    color: #1f1f1f;
+    font-weight: 600;
+}
+
+/* Hamburger button */
+.hamburger {
+    display: none; /* faqat mobilda ko‘rinadi */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Mobile display */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px; /* navbar balandligi */
+        right: -100%; /* yashirin */
+        width: 200px;
+        height: calc(100% - 70px);
+        background-color: var(--primary-color);
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem 1rem;
+        transition: right 0.3s ease;
+        z-index: 100;
+    }
+
+    .nav-links.show {
+        right: 0; /* ochilganda ko‘rinadi */
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar .container {
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Асосий Қисм */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero h1,
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.cta-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+    max-width: 200px;
+}
+
+.cta-btn:hover {
+    background-color: #ff5500;
+}
+
+/* Хизматлар */
+.services {
+    padding: 60px 20px;
+    background-color: var(--light-bg);
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 4fr));
+    gap: 4rem;
+}
+
+.service-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.service-card p {
+    color: #F5F5F5; /* oq rang fon rasmi ustida o‘qilishi qiyin */
+}
+
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    color: #F5F5F5;
+    line-height: 1.6;
+}
+
+/* Биз Ҳақида */
+.about {
+    padding: 60px 20px;
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.stat h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Боғланиш */
+.contact {
+    padding: 60px 20px;
+    background-color: var(--light-bg);
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-info h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.4);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+}
+
+.submit-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-color);
+}
+
+/* Пойти */
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.7rem;
+}
+
+.service-card {
+    position: relative;
+    padding: 30px;
+    border-radius: 12px;
+    min-height: 220px;
+    width: 400px ;
+    color: #fff;
+    overflow: hidden;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* Background image */
+.service-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(0.5px) brightness(0.8);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+/* Dark overlay */
+.service-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.3)
+    );
+    z-index: 2;
+}
+
+/* Content */
+.service-card h3,
+.service-card p {
+    position: relative;
+    z-index: 3;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.korea::before {
+    background-image: url("images/korea.jpg");
+}
+.usa::before {
+    background-image: url("images/usa.jpg");
+}
+.germany::before {
+    background-image: url("images/germany.jpg");
+}
+.italy::before {
+    background-image: url("images/italy.jpg");
+}
+.kanada::before {
+    background-image: url("images/kanada.jpg");
+}
+.avstalya::before {
+    background-image: url("images/avstalya.jpg");
+}
+.uk::before {
+    background-image: url("images/uk.jpg");
+}
+.latvya::before {
+    background-image: url("images/latvya.jpg");
+}
+.malazya::before {
+    background-image: url("images/malazia.jpg");
+}
+.polsha::before {
+    background-image: url("images/polsha.jpg");
+}
+.turkiya::before {
+    background-image: url("images/turkiya.jpg");
+}
+.vengriya::before {
+    background-image: url("images/vengriya.jpg");
+}
+.zelland::before {
+    background-image: url("images/zelland.jpg");
+}
+.yaponiya::before {
+    background-image: url("images/yaponiya.jpg");
+}
+/* Мобил Версияси */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .services h2,
+    .about h2,
+    .contact h2 {
+        font-size: 2rem;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1rem;
+    }
+
+    .hero-title span {
+        font-size: 3.2rem;
+    }
+}
+@media (max-width: 768px) {
+    .about-content {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr; /* har bir stat alohida qatorda */
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .stat {
+        padding: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .stat h3 {
+        font-size: 2rem;
+    }
+
+    .stat p {
+        font-size: 0.95rem;
+    }
+}
+@media (max-width: 768px) {
+    .contact-content {
+        display: flex;
+        flex-direction: column; /* info va form bir ustunda joylashadi */
+        gap: 2rem;
+    }
+
+    .contact-info {
+        padding: 0 10px;
+    }
+
+    .contact-form {
+        padding: 0 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .submit-btn {
+        width: 100%; /* inputlar to‘liq kenglikda */
+        font-size: 1rem;
+    }
+}
+

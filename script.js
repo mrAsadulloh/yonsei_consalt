@@ -1,0 +1,42 @@
+
+// ================================
+// 1️⃣ Hamburger menu toggle
+// ================================
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const navItems = document.querySelectorAll('.nav-links a');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
+
+// Link bosilganda menu yopilishi
+navItems.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+    });
+});
+
+// ================================
+// 2️⃣ Service card toggle
+// ================================
+const serviceCards = document.querySelectorAll('.service-card');
+
+serviceCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const details = card.querySelector('.service-details');
+
+        // Toggle: oldin barcha detailsni yopish
+        document.querySelectorAll('.service-details').forEach(d => {
+            if(d !== details) d.style.display = 'none';
+        });
+
+        // Ochish / yopish
+        if(details.style.display === "block") {
+            details.style.display = "none";
+        } else {
+            details.style.display = "block";
+        }
+    });
+});
+
