@@ -40,3 +40,25 @@ serviceCards.forEach(card => {
     });
 });
 
+
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+        name: e.target[0].value,
+        email: e.target[1].value,
+        phone: e.target[2].value,
+        message: e.target[3].value
+    };
+
+    const res = await fetch("http://localhost:5000/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+    alert(result.message);
+});
+
+
